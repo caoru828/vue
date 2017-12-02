@@ -12,18 +12,27 @@ const state = {
   count:1
 };
 
+
+
 //不能直接改变count值，必须得这样改变
 const mutations = {
-  add(state){
-    state.count++;
+  add(state,num){
+    state.count += num;
   },
   reduce(state){
     state.count--;
   }
 };
+
+const getters = {
+  count1(state){
+    return state.count +=100;
+  }
+}
 //es6属性名对应属性值放进去
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  getters
 });
 
