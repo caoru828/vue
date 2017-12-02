@@ -1,5 +1,14 @@
 <template>
   <div id="app">
+
+<!--编程式导航-->
+    <div>
+      <button @click="back">上一页</button>
+      <button @click="forward">下一页</button>
+      <button @click="home">首页</button>
+
+    </div>
+
     <!--<img src="./assets/logo.png">-->
     <router-link to="/">首页</router-link>
     <router-link to="/Test">导航1</router-link>
@@ -26,7 +35,22 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  methods:{
+    back(){
+//      前一页
+      this.$router.go(-1);
+    },
+//    后一页
+    forward(){
+      this.$router.go(1);
+    },
+//    跳转到首页。push里可以任意路径
+    home(){
+      this.$router.push('/');
+    }
+  }
+
 }
 </script>
 

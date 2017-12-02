@@ -27,6 +27,15 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+//  钩子函数2
+  beforeRouteEnter:(to,form,next)=>{
+    console.log("准备进入路由模板");
+    next();
+  },
+  beforeRouteLeave:(to,from,next)=>{
+    console.log("准备离开路由模板");
+    next();
   }
 }
 </script>

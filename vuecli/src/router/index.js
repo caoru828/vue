@@ -8,6 +8,8 @@ import TestUrl from '@/components/TestUrl'
 import Error from '@/components/Error'
 
 
+//变成式导航 1 a href routlink    2 button click js
+
 
 Vue.use(Router)
 
@@ -40,7 +42,15 @@ export default new Router({
     {
       path:'/testUrl/:userId(\\d+)/:userName',
       name:'testUrl',
-      component:TestUrl
+      component:TestUrl,
+      //路由钩子函数1
+      //   to from next 导航守卫，beforeEnter守卫
+      beforeEnter:(to,from,next)=>{
+        console.log(to);
+        console.log(from);
+        next();
+        // next（）是个函数，不写next或写next(false)页面不跳转；默认next（ture）
+      }
     },
     {
       path : '/home/:userId(\\d+)/:userName',
