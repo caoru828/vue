@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+<!--vuex不同URL间传值，不管是爸爸可以找儿子，还可以直接爷爷找孙子，其他没亲戚的，vuex就是资源池-->
 <!--编程式导航-->
     <div>
       <button @click="back">上一页</button>
@@ -21,6 +21,7 @@
     <!--配置组路由得站位。router-view就是站位用的，再在index。js里配置import引入，和路径children-->
 
 
+    <router-link to="/counter">vuex</router-link>
 
     <!--alias别名 ：仔细观察URL，redirect是直接改变了url的值，把url变成了真实的path路径。redirect -->
     <!--：URL路径没有别改变，这种情况更友好，让用户知道自己访问的路径，只是改变了<router-view>中的内容-->

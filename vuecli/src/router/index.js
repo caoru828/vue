@@ -6,6 +6,7 @@ import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import TestUrl from '@/components/TestUrl'
 import Error from '@/components/Error'
+import Counter from '@/components/counter'
 
 
 //变成式导航 1 a href routlink    2 button click js
@@ -59,6 +60,11 @@ export default new Router({
     {
       path:'*',
       component:Error
+    },
+    {
+      path:'/counter',
+      name:'counter',
+      component:Counter
     }
   ]
 })
