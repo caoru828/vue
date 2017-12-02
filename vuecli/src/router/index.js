@@ -5,10 +5,16 @@ import Test from '@/components/Test'
 import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import TestUrl from '@/components/TestUrl'
+import Error from '@/components/Error'
+
+
 
 Vue.use(Router)
 
 export default new Router({
+  // mode:'hash'  默认
+  mode:'history'
+  ,
   routes: [
     {
       path: '/',
@@ -23,7 +29,8 @@ export default new Router({
         {
           path:'test1',
           name:'test1',
-          component:Test1
+          component:Test1,
+          alias:'/abc'
         },{
           path:'test2',
           component:Test2
@@ -34,6 +41,14 @@ export default new Router({
       path:'/testUrl/:userId(\\d+)/:userName',
       name:'testUrl',
       component:TestUrl
+    },
+    {
+      path : '/home/:userId(\\d+)/:userName',
+      redirect :'/testUrl/:userId(\\d+)/:userName'
+    },
+    {
+      path:'*',
+      component:Error
     }
   ]
 })
