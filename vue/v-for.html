@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <!--下边保证不会闪-->
+        <div v-text="msg"></div>
+        <!--文本输出-->
+        <div v-html="msg2"></div>
+        <div v-for="(s,index) in list"  :key="index">{{s}}--{{index}}</div>
+        <div v-for="p in sortArr">{{p}}</div>
+
+        <div v-for="val in obj">{{val}}</div>
+        <div v-for="(val,key,index) in obj">{{val}} -- {{key}} -- {{index}} </div>
+    </div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'Hello World',
+            list:['aaa','ccc','ddd'],
+            arr:[1,2,8,3,4,3,0],
+            obj:{
+                name : 'ccrr',
+                age  : 15,
+                sex  : 'girl'
+            },
+            msg2:'<h1>hhhhhh</h1>'
+        },
+        computed:{
+            sortArr : function () {
+                return this.arr.sort(function (a, b) {
+                    return a-b;
+                });
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

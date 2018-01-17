@@ -9,6 +9,16 @@
         {{msg}}
         <div v-if="isLogin">请登录</div>
         <div v-else>登录成功</div>
+
+        <div v-if="isTrue == 'A'">A</div>
+        <!--在dom结构里看不到-->
+        <div v-else-if="isTrue == 'B'">B</div>
+        <div v-else>C</div>
+
+        <div v-show="isShow">show</div>
+        <!--在dom里能看到，但是改变的是display：none-->
+        <div v-show="!isShow">Noshow</div>
+        <!--区别 ： 1.dom 2. 上来就判断显示不显示v-if  一会儿显示一会儿不显示用v-show -->
     </div>
 <script src="vue.js"></script>
 <script>
@@ -16,7 +26,9 @@
         el:'#app',
         data:{
             msg:'Hello World',
-            isLogin:true
+            isLogin:true,
+            isTrue :'A',
+            isShow :true
         }
     })
 </script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="
+    app">
+        {{msg}}
+        <!--<button v-on:click="add"></button>-->
+        <button @click="add(3,$event)">add</button>
+        <div>{{count}}</div>
+    </div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'Hello World',
+            count:0
+        },
+        methods:{
+            add:function (num,e) {
+                this.count+=num;
+                console.log(e);
+            }
+//            add () {
+//                this.count++;
+//            }
+        }
+    })
+</script>
+</body>
+</html>
